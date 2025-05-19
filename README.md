@@ -17,8 +17,8 @@ Antes de começar, verifique se você tem instalado em sua máquina:
 
 1. **Clone o repositório**
    ```bash
-   git clone https://github.com/<seu-usuário>/<seu-repositório>.git
-   cd <seu-repositório>
+   git clone https://github.com/JeanJerri/exercicios_JS.git
+   cd exercicios_JS
    ```
 
 2. **Instale as dependências**
