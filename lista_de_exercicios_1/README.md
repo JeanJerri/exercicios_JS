@@ -15,15 +15,20 @@ Antes de começar, verifique se você tem instalado em sua máquina:
 
 ## Instalação
 
-1. **Clone o repositório**
+1. **Abra uma pasta com o Git Bash**:
+   * Abra a pasta diretamente no terminal do Git Bash.
+
+2. **Clone o repositório:**
+
    ```bash
    git clone https://github.com/JeanJerri/exercicios_JS.git
-   cd exercicios_JS
    ```
 
-2. **Instale as dependências**
+3. **Instale as dependências:**
+
    O programa utiliza o pacote [`prompt-sync`](https://www.npmjs.com/package/prompt-sync) para leitura de entradas no console. Execute:
    ```bash
+   cd exercicios_JS
    npm install
    ```
 
@@ -32,13 +37,17 @@ Antes de começar, verifique se você tem instalado em sua máquina:
 ## Estrutura de Arquivos
 
 ```
-├── lista_de_exercicios_1.js    # Arquivo principal com o menu e funções das questões
-├── package.json                # Definições de dependências e scripts
-└── README.md                   # Este guia de execução
+exercicios_JS/
+├── lista_de_exercicios_1/
+│   └── lista_de_exercicios_1.js    # Arquivo principal com menu e funções (questao1() ... questao15())
+│   └── README.md                   # Este guia de execução
+├── lista_de_exercicios_2/
+├── package.json                    # Definições de dependências e scripts
+└── README.md               
 ```
 
-* **lista_de_exercicios_1.js**: contém o loop principal que permite escolher de 1 a 15 ou sair com 0, e as 15 funções `questao1()` a `questao15()`.
-* **package.json**: aponta a dependência `prompt-sync`.
+* **lista_de_exercicios_1/lista_de_exercicios_1.js**: contém o loop principal que permite escolher de 1 a 15 ou sair com 0, e as 15 funções `questao1()` a `questao15()`.
+* **package.json**: define dependências (por exemplo prompt-sync) e scripts npm, se houver.
 
 ---
 
@@ -48,14 +57,19 @@ Antes de começar, verifique se você tem instalado em sua máquina:
    * Abra a pasta diretamente pelo menu do VSCode.
 
 2. **Abra o terminal integrado**:
-   * Vá em **View > Terminal** ou use o atalho **Ctrl + \`**.
+   * Vá em **View > Terminal** ou use o atalho **Ctrl + '**.
 
-3. **Execute o programa**:
+3. **Se direcione para a pasta deste código**:
+   ```bash
+   cd exercicios_JS/lista_de_exercicios_1
+   ```
+
+4. **Execute o programa**:
    ```bash
    node lista_de_exercicios_1.js
    ```
 
-4. **Interaja com o menu**:
+5. **Interaja com o menu**:
    * Digite o número da questão (de 1 a 15) para a execução da solução correspondente.
    * Ou digite `0` para encerrar o programa.
 
@@ -76,5 +90,20 @@ Informe o número da questão que você quer executar a solução
 De 1 à 15 ou 0 para encerrar o programa: 0
 Encerrando...
 ```
+
+---
+
+## Problemas comuns e soluções rápidas
+
+* **Erro: `Cannot find module 'prompt-sync'`**
+
+  * Execute `npm install` na raiz do repositório ou instale manualmente com:
+
+    ```bash
+    npm install prompt-sync
+    ```
+* **Node não encontrado**
+
+  * Verifique se o Node.js está instalado e acessível no PATH: `node -v`.
 
 ---
