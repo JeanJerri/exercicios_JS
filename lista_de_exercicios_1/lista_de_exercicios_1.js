@@ -71,7 +71,7 @@ function questao1() {
     }
 
     if (!Number.isInteger(numero)) {
-        console.log("Não é um número inteiro!, informe um número válido!")
+        console.log("Não é um número inteiro! Informe um número válido!")
         return questao1()
     }
 
@@ -231,7 +231,7 @@ function questao7() {
 
     let precoUn, total
 
-    if (qtdMacas <= 12) {
+    if (qtdMacas < 12) {
         precoUn = 0.30
     } else {
         precoUn = 0.25
@@ -275,8 +275,8 @@ function questao9() {
 
     console.log('Contagem regressiva:')
     for (let i=10; i>=1; i--) {
-        bloqueio(1000);
         console.log(i)
+        bloqueio(1000);
     }
 }
 
@@ -334,26 +334,36 @@ function questao13() {
     // 13. Fazer um algoritmo para receber números decimais até que o usuário digite 0 e fazer
     // a média aritmética desses números.
 
-    function eDecimal(n) {
-        return typeof n === 'number' && Number.isFinite(n) && !Number.isInteger(n)
+    function eDecimal(entrada, num) {
+        // aceita se o número tiver parte fracionária
+        if (!Number.isFinite(num)) return false;
+        const hasSep = entrada.includes('.');
+        const temFrac = !Number.isInteger(num);
+        return temFrac || hasSep;
     }
 
-    let decimal, total=0, media, qtd=0
+    let entrada, num, total=0, media, qtd=0
 
     do {
-        decimal = Number(prompt("Digite um número decimal (para encerrar digite 0): "))
-        if(!(eDecimal(decimal)) && (decimal!=0)){
+        entrada = prompt("Digite um número decimal (para encerrar digite 0): ")
+        num = Number(entrada)
+
+        if (num==0) {
+            console.log('Encerrando...')
+        } else if (!(eDecimal(entrada, num))) {
             console.log('Esse valor não é decimal, digite outro.')
         } else {
-            total += decimal
-            if(decimal!=0){
-                qtd++  
-            }
+            total += num
+            qtd++  
         }
-    } while (decimal!=0)
-
-    media=total/qtd
-    console.log('Média dos números informados = ' + media)
+    } while (num!=0)
+ 
+    if(qtd==0) {
+        console.log('Nenhum número informado. Média indisponível.');
+    } else {
+        media=total/qtd
+        console.log('Média dos números informados = ' + media.toFixed(2))
+    }
 }
 
 function questao14() {
@@ -361,6 +371,7 @@ function questao14() {
     // utilizando um loop for ou while.
 
     let numero = Number(prompt('Informe um número para calcular seu fatorial: '))
+    
     if(!(Number.isInteger(numero)) || (numero<0)) {
         console.log('Esse valor não é inteiro ou não é positivo!')
         questao14()
